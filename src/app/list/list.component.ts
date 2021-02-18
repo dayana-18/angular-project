@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { POSTS } from '../@shared/mock';
 import { Post } from '../@shared/models/post';
