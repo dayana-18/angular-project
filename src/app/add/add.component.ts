@@ -8,20 +8,21 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
-  PostForm = new FormGroup({
-    title: new FormControl(),
-    description: new FormControl(),
-    link: new FormControl()
-    });
-
-  submitPost() {
-      console.log(this.PostForm.value);
-  }
+  PostForm: FormGroup ;
 
   constructor() { }
 
   ngOnInit(): void {
 
+    this.PostForm = new FormGroup({
+    title: new FormControl(),
+    description: new FormControl(),
+    link: new FormControl()
+    });
   }
 
+  submitPost() {
+          console.log(this.PostForm.value);
+      }
 }
+

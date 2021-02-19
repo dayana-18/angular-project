@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import { AddComponent } from './add/add.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
