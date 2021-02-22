@@ -1,8 +1,8 @@
 <!-- Afficher avec une boucle *ngFor une liste de composant Post (PostComponent) -->
-<h1>FORMULAIRE</h1>
-<app-add></app-add>
+<h1>Formulaire :</h1>
+<app-add (addPostEvent)="addPost($event)"></app-add>
 <br>
-<h2>LISTE</h2>
+<h2>Liste :</h2>
 <ul>
     <li *ngFor="let post of posts">
         <!--<span>{{ post.id }}</span>

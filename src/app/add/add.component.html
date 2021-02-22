@@ -14,5 +14,5 @@
         <input matInput placeholder="Lien" formControlName="link">
     </mat-form-field>
     <br>
-    <button mat-raised-button [disabled]="PostForm.invalid">Submit</button>
+    <button mat-raised-button [disabled]="PostForm.invalid" (click)="createPost()">Submit</button>
 </form> <hr>

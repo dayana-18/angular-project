@@ -19,4 +19,8 @@ export class ListComponent implements OnInit {
     console.log("posts > ", this.posts);
   }
 
+  addPost(newPost: Post){
+    this.posts.push(newPost);
+  }
+
 }
