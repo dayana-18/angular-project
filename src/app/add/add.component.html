@@ -1,21 +1,18 @@
-<form formGroup="PostForm"
-(ngSubmit)="submitPost()" >
-
-<div>
-    <label for="name">Titre : </label>
-    <input type="text" formControlName="title">
-</div>
-<br>
-<div>
-    <label for="name">Description : </label>
-    <textarea formControlName="description"></textarea>
-</div>
-<br>
-<div>
-    <label for="name">Lien : </label>
-    <input type="text" formControlName="link">
-</div>
-<br>
-<button type="submit">SUBMIT</button>
-
-</form>
+<form [formGroup]="PostForm">
+    Value: {{ PostForm.value | json }}
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Titre" formControlName="title">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description">
+        </textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Lien" formControlName="link">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button [disabled]="PostForm.invalid">Submit</button>
+</form> <hr>
