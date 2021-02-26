@@ -12,6 +12,7 @@ import { Post } from '../@shared/models/post';
 export class ListComponent implements OnInit {
 
   posts: Post[] //= POSTS;
+  postEdited = null;
 
   constructor(private postService: PostServiceService) { }
 
@@ -41,11 +42,10 @@ export class ListComponent implements OnInit {
     }
   }
 
-  editPost(post: Post){
+  modifPost(post: Post){
     for (let i = 0; i < this.posts.length; i++) {
       if (post._id == this.posts[i]._id ) {
-        this.postService.deleteOnePost(this.posts[i]._id).subscribe();
-        this.posts.splice(i,1);
+        this.postEdited = this.posts[i]
       }
     }
   }

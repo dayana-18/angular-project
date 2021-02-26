@@ -27,7 +27,7 @@ export class PostServiceService {
     return this.http.delete(url);
   }
 
-  editPost(id: any, postEdited: Post){
+  editOnePost(id: any, postEdited: Post){
     return this.http.put(`${postsList}/posts/${id}`, postEdited);
   }
 

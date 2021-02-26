@@ -14,6 +14,7 @@ import { IdGeneratorUtils } from '../@shared/utils/id-generator.utils';
 export class AddComponent implements OnInit {
 
   @Input() post: Post;
+
   @Output() addPostEvent = new EventEmitter<Post>();
 
   PostForm: FormGroup ;
@@ -55,6 +56,7 @@ export class AddComponent implements OnInit {
   }
 
   editPost(){
+    this.addPostEvent.emit(this.post);
   }
 
   submit(){
