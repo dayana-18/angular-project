@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("posts > ", this.posts);
+    this.getPost();
   }
 
   addPost(newPost: Post){
@@ -27,6 +28,26 @@ export class ListComponent implements OnInit {
 
   getPost() {
     this.postService.getPosts().subscribe( posts => {this.posts = posts} );
+    console.log("on affiche tout");
+  }
+
+  delPost(post: Post){
+    for (let i = 0; i < this.posts.length; i++) {
+      if (post._id == this.posts[i]._id ) {
+        console.log("on supp");
+        this.postService.deleteOnePost(this.posts[i]._id).subscribe();
+        this.posts.splice(i,1);
+      }
+    }
+  }
+
+  editPost(post: Post){
+    for (let i = 0; i < this.posts.length; i++) {
+      if (post._id == this.posts[i]._id ) {
+        this.postService.deleteOnePost(this.posts[i]._id).subscribe();
+        this.posts.splice(i,1);
+      }
+    }
   }
 
 }

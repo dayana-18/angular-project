@@ -1,5 +1,6 @@
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Post } from '../@shared/models/post';
@@ -12,7 +13,9 @@ import { IdGeneratorUtils } from '../@shared/utils/id-generator.utils';
 })
 export class AddComponent implements OnInit {
 
+  @Input() post: Post;
   @Output() addPostEvent = new EventEmitter<Post>();
+
   PostForm: FormGroup ;
 
   constructor(private _formBuilder: FormBuilder) { }
@@ -35,7 +38,7 @@ export class AddComponent implements OnInit {
 
   createPost(){
     const post:Post = {
-      id: IdGeneratorUtils.uuidv4(),
+      //id: IdGeneratorUtils.uuidv4(),
       title: this.PostForm.get("title").value,
       description: this.PostForm.get("description").value,
       link: this.PostForm.get("title").value,
@@ -45,6 +48,13 @@ export class AddComponent implements OnInit {
 
     //alert('Send msg')
     //this.greet.emit();
+  }
+
+  deletePost(){
+    this.addPostEvent.emit(this.post);
+  }
+
+  editPost(){
   }
 
   submit(){

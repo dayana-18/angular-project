@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Post } from './models/post';
 
-const postsList = "https://crudcrud.com/api/385844deb8d848ffa6e5b25b4c6699ec";
+const postsList = "https://crudcrud.com/api/2d6a727f8e844a5d97055cb9b1701c00";
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,16 @@ export class PostServiceService {
     return this.http.post<Post>(postsList+"/posts", post);
   }
 
-  /*searchHeroes(term: string): Observable<Post[]>{
+  deleteOnePost(id: String): Observable<{}> {
+    const url = postsList+"/posts/"+id;
+    return this.http.delete(url);
+  }
 
-    const params = new HttpParams({fromString: 'name=term'});
-      return this.httpClient.request('GET', this.heroesUrl, {responseType:'json', params});
-   }*/
+  editPost(id: any, postEdited: Post){
+    return this.http.put(`${postsList}/posts/${id}`, postEdited);
+  }
+
+
   /*configUrl = 'assets/config.json';
 
   getConfig() {

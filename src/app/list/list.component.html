@@ -9,5 +9,8 @@
         <span> | </span>
         <span>{{ post.title }}</span> -->
         <app-post [post]="post"></app-post>
+        <button mat-raised-button (click)="delPost(post)">Supprimer</button>
+        <button mat-raised-button (click)="editPost(post.id,post)">Editer</button>
+        <br>
     </li>
 </ul>
